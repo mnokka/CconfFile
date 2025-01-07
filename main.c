@@ -40,9 +40,9 @@ typedef struct {
 static int handler(void* user, const char* section, const char* name, const char* value) {
     config_t* pconfig = (config_t*)user;
     if (strcmp(section, "Window") == 0) {
-        if (strcmp(name, "width") == 0) {
+        if (strcmp(name, "Width") == 0) {
             pconfig->width = atoi(value);
-        } else if (strcmp(name, "height") == 0) {
+        } else if (strcmp(name, "Height") == 0) {
             pconfig->height = atoi(value);
         }
     }
@@ -52,7 +52,7 @@ static int handler(void* user, const char* section, const char* name, const char
 int main() {
 
     char FileName[] = "zgloom.conf";
-    config_t config = {800, 600}; // Oletusarvot
+    config_t config = {320, 200}; // Oletusarvot
 
     if (ini_parse(FileName, handler, &config) < 0) {
         printf("No config file found (%s). Using default values\n",FileName);
